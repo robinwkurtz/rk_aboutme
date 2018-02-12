@@ -1,0 +1,29 @@
+extends:
+  - osedea/react
+  - osedea/flow
+  - osedea/testing
+
+plugins:
+  - flowtype-errors
+
+globals:
+  __PROD__: false
+  __STG__: false
+  __DEV__: false
+
+rules:
+  flowtype-errors/show-errors: warn
+  flowtype-errors/enforce-min-coverage:
+    - warn
+    - 75
+
+  # Overrides
+  newline-per-chained-call:
+    - error
+    -
+      ignoreChainWithDepth: 3
+
+  react/jsx-max-props-per-line:
+    - error
+    -
+      maximum: 3
