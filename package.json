@@ -8,6 +8,7 @@
     "build": "webpack"
   },
   "author": "Robin Kurtz <robinwkurtz@gmail.com>",
+  "url" : "https://github.com/robinwkurtz/rk_aboutme",
   "license": "ISC",
   "dependencies": {
     "html-webpack-plugin": "^2.30.1",
