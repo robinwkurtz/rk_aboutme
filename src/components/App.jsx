@@ -4,10 +4,9 @@ import React from 'react';
 
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import { Container, InnerContainer, Title, Body, Icon, ButtonThumbnail, Controls, Control, Transition } from './styles';
+import { Container, InnerContainer, Title, Body, Icon, ButtonThumbnail, Controls, Control, Transition, Bracket } from './styles';
 
 import codeigniterIcon from '../assets/images/codeigniter.svg';
-import compassIcon from '../assets/images/compass.svg';
 import cssIcon from '../assets/images/css.svg';
 import dockerIcon from '../assets/images/docker.svg';
 import gitIcon from '../assets/images/git.svg';
@@ -22,21 +21,22 @@ import phpIcon from '../assets/images/php.svg';
 import reactIcon from '../assets/images/react.svg';
 import reduxIcon from '../assets/images/redux.svg';
 import sassIcon from '../assets/images/sass.svg';
+import slicingIcon from '../assets/images/slicing.svg';
+import terminalIcon from '../assets/images/terminal.svg';
+import wordpressIcon from '../assets/images/wordpress.svg';
 
-import escuminacThumb from '../assets/images/escuminac.jpg';
-import premiumBeatThumb from '../assets/images/premium-beat.jpg';
-import delicesDesMicheleThumb from '../assets/images/delices-des-michele.jpg';
 import camelliaSinensisThumb from '../assets/images/camellia-sinensis.jpg';
 import cassisEtMelisseThumb from '../assets/images/cassis-et-melisse.jpg';
-import delicesDesMicheleWeb from '../assets/images/delices-des-michele-web.jpg';
 import cassisEtMelisseWeb from '../assets/images/cassis-et-melisse-web.jpg';
-
+import cassisEtMelisseWebAlt from '../assets/images/cassis-et-melisse-web-alt.jpg';
+import delicesDeMicheleThumb from '../assets/images/delices-de-michele.jpg';
+import delicesDeMicheleWebGIF from '../assets/images/delices-de-michele-web.gif';
+import escuminacThumb from '../assets/images/escuminac.jpg';
+import premiumBeatThumb from '../assets/images/premium-beat.jpg';
 
 import leftIcon from '../assets/images/arrow-left.svg';
 import homeIcon from '../assets/images/home.svg';
 import rightIcon from '../assets/images/arrow-right.svg';
-
-
 
 type State = {
     currentSlide: number,
@@ -46,7 +46,7 @@ type State = {
 export default class App extends React.Component<null, State> {
     state = {
         currentSlide: 0,
-        lastSlide: 15,
+        lastSlide: 16,
     };
 
     handlePrevSlide = () => {
@@ -84,24 +84,25 @@ export default class App extends React.Component<null, State> {
         switch (this.state.currentSlide) {
             default:
                 slide = (
-                    <React.Fragment>
+                    <div>
                         <Title>Hello!</Title>
-                        <Body>This is how I became a developer in 1993 (give or take) days</Body>
-                    </React.Fragment>
+                        <Body>This is how I became a developer in 1993 days, give or take a few</Body>
+                    </div>
                 );
                 break;
             case 1:
                 slide = (
-                    <React.Fragment>
+                    <div>
                         <Title>2012</Title>
                         <Body>Graduated from Graphic Design at Dawson college</Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 2:
                 slide = (
-                    <React.Fragment>
+                    <div>
                         <Title>Branding</Title>
+                        <Body>I had the opportunity to work on some great brands, a few I can call my own</Body>
                         <Body>
                             <ButtonThumbnail
                                 href="https://www.behance.net/gallery/27618719/Escuminac-Visual-Identity-Packaging"
@@ -116,163 +117,179 @@ export default class App extends React.Component<null, State> {
                                 <img src={premiumBeatThumb} alt="Premium Beat" />
                             </ButtonThumbnail>
                         </Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 3:
                 slide = (
-                    <React.Fragment>
+                    <div>
                         <Title>Package design</Title>
-                        <Body>[Delice de Michelle] [Camelia Sinensis] [Point G]</Body>
+                        <Body>From designing labels, to building out box dies</Body>
                         <Body>
                             <ButtonThumbnail
-                                href=""
+                                href="https://www.behance.net/gallery/9979453/Dlices-de-Michele-Brand-Identity-Packagings"
                                 target="_blank"
                             >
-                                <img src={delicesDesMicheleThumb} alt="Délices de Michèle" />
+                                <img src={delicesDeMicheleThumb} alt="Délices de Michèle" />
                             </ButtonThumbnail>
                             <ButtonThumbnail
-                                href=""
+                                href="https://www.behance.net/gallery/14655675/Camellia-Sinensis-Packagings"
                                 target="_blank"
                             >
                                 <img src={camelliaSinensisThumb} alt="Camellia Sinensis" />
                             </ButtonThumbnail>
                             <ButtonThumbnail
-                                href=""
+                                href="https://www.behance.net/gallery/33883306/Cassis-et-Mlisse-Packagings"
                                 target="_blank"
                             >
                                 <img src={cassisEtMelisseThumb} alt="Cassis et Melisse" />
                             </ButtonThumbnail>
                         </Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 4:
                 slide = (
-                    <React.Fragment>
-                        <Title>Basic websites in HTML & CSS</Title>
-                        <Body>[Delice de Michelle] [Cassis et Melisse]</Body>
+                    <div>
+                        <Title>Basic websites</Title>
+                        <Body>Built with HTML & CSS only! (Yes, it’s sadly true)</Body>
                         <Body>
                             <ButtonThumbnail
-                                href=""
+                                href="https://www.behance.net/gallery/33883306/Cassis-et-Mlisse-Packagings"
                                 target="_blank"
                             >
-                                <img src={delicesDesMicheleWeb} alt="" />
+                                <img src={cassisEtMelisseWebAlt} alt="" />
                             </ButtonThumbnail>
                             <ButtonThumbnail
-                                href=""
+                                href="https://www.behance.net/gallery/33883306/Cassis-et-Mlisse-Packagings"
                                 target="_blank"
                             >
                                 <img src={cassisEtMelisseWeb} alt="" />
                             </ButtonThumbnail>
+                            <br />
+                            <ButtonThumbnail
+                                href="https://www.behance.net/gallery/9979453/Dlices-de-Michele-Brand-Identity-Packagings"
+                                target="_blank"
+                            >
+                                <img src={delicesDeMicheleWebGIF} alt="" />
+                            </ButtonThumbnail>
                         </Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 5:
                 slide = (
-                    <React.Fragment>
-                        <Title>Hey!</Title>
-                        <Body>Development is pretty cool, let's learn more</Body>
-                    </React.Fragment>
+                    <div>
+                        <Title>Wait a minute...</Title>
+                        <Body>Development is pretty cool, let’s learn more!</Body>
+                    </div>
                 );
                 break;
             case 6:
-                slide = (
-                    <React.Fragment>
-                        <Title>February 2014</Title>
-                    </React.Fragment>
-                );
+                slide = <Title>February 2014</Title>;
                 break;
             case 7:
                 slide = (
-                    <React.Fragment>
-                        <Body>Learned how to build out custom themes in wordpress PHP, HTML & CSS -> SCSS w/compass</Body>
+                    <div>
+                        <Title>More skillzzz</Title>
+                        <Body>Learned how to build out custom themes in wordpress and other basic PHP websites</Body>
                         <Body>
+                            <Icon src={wordpressIcon} alt="Wordpress" />
+                            <Bracket>[</Bracket>
                             <Icon src={phpIcon} alt="PHP" />
-                            <Icon src={htmlIcon} alt="HTML" />
-                            <Icon src={cssIcon} alt="CSS" />
+                            <Icon src={htmlIcon} alt="HTML" portrait />
+                            <Icon src={sassIcon} alt="Sass" />
+                            <Icon src={cssIcon} alt="CSS" portrait />
                             <Icon src={jqueryIcon} alt="jQuery" />
+                            <Bracket>]</Bracket>
                         </Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 8:
                 slide = (
-                    <React.Fragment>
-                        <Title>Things got stale</Title>
-                    </React.Fragment>
+                    <div>
+                        <Title>Oops...</Title>
+                        <Body>Things got stale & repetitive... little room to improve & learn more</Body>
+                    </div>
                 );
                 break;
             case 9:
-                slide = (
-                    <React.Fragment>
-                        <Title>March 2016</Title>
-                    </React.Fragment>
-                );
+                slide = <Title>March 2016</Title>;
                 break;
             case 10:
                 slide = (
-                    <React.Fragment>
-                        <Title>Moved in the marketing side of things</Title>
-                        <Body>[Mailchimp] [Responsys]</Body>
+                    <div>
+                        <Title>The marketing side of things</Title>
+                        <Body>Interesting but a not very devvy? (developer-like)</Body>
                         <Body>
                             <Icon src={mailchimpIcon} alt="Mailchimp" />
-                            <Icon src={oracleIcon} alt="Orcale's Responsys" />
+                            <Icon src={oracleIcon} alt="Orcale's Responsys" landscape />
                         </Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 11:
                 slide = (
-                    <React.Fragment>
-                        <Title>And some not so great things...</Title>
-                        <Body>[Codeigniter 2] [Slicing in Photoshop]</Body>
+                    <div>
+                        <Title>Hmm...</Title>
+                        <Body>And some not so great things like legacy code & old tech</Body>
                         <Body>
-                            <Icon src={codeigniterIcon} alt="Codeigniter" />
+                            <Icon src={codeigniterIcon} alt="Codeigniter v2" />
+                            <Icon src={slicingIcon} alt="Slicing in Photoshop" />
+                            <Icon src={gulpIcon} alt="Gulp" portrait />
                         </Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 12:
                 slide = (
-                    <React.Fragment>
+                    <div>
                         <Title>Intro to React</Title>
-                        <Body>[React]</Body>
+                        <Body>Damn... this is pretty neat!</Body>
                         <Body>
                             <Icon src={reactIcon} alt="React" />
                         </Body>
-                        <Body>Damn... this is pretty neat!</Body>
-                    </React.Fragment>
+                    </div>
                 );
                 break;
             case 13:
                 slide = (
-                    <React.Fragment>
-                        <Body>Things got stale... little react, too much CI maintenance & Responsys</Body>
-                    </React.Fragment>
+                    <div>
+                        <Title>Short lived?</Title>
+                        <Body>Things got stale... little react, too much CI maintenance & CRM work</Body>
+                    </div>
                 );
                 break;
             case 14:
-                slide = (
-                    <React.Fragment>
-                        <Title>February 2018</Title>
-                    </React.Fragment>
-                );
+                slide = <Title>February 2018</Title>;
                 break;
             case 15:
                 slide = (
-                    <React.Fragment>
-                        <Title>Awesome team, cool stack, endless potential?</Title>
-                        <Body>[React] [Laravel] [Docker] [Git]/[Command Line]</Body>
+                    <div>
+                        <Title>Oh hi!</Title>
+                        <Body>Awesome team, cool stack, endless potential?</Body>
                         <Body>
+                            <Icon src={gitIcon} alt="Git" />
                             <Icon src={dockerIcon} alt="Docker" />
+                            <Icon src={terminalIcon} alt="Temrinal" />
+                            <br />
                             <Icon src={laravelIcon} alt="Laravel" />
                             <Icon src={reactIcon} alt="React" />
                             <Icon src={reduxIcon} alt="Redux" />
-                            <Icon src={gitIcon} alt="Git" />
+                            <Icon src={immutableIcon} alt="Immutable" landscape />
                         </Body>
-                    </React.Fragment>
+                        <Body>And many more...</Body>
+                    </div>
+                );
+                break;
+            case 16:
+                slide = (
+                    <div>
+                        <Title>Questions?</Title>
+                        <Body>No? Well <strong>thank you</strong> for your time!</Body>
+                        <Title><span role="img" aria-label="Grimace">😬</span></Title>
+                    </div>
                 );
                 break;
         }
@@ -289,7 +306,7 @@ export default class App extends React.Component<null, State> {
                 <InnerContainer>
                     <CSSTransitionGroup
                         transitionName="slide"
-                        transitionEnterTimeout={300}
+                        transitionEnterTimeout={450}
                         transitionLeave={false}
                     >
                         <Transition key={this.state.currentSlide}>

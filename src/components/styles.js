@@ -7,21 +7,20 @@ injectGlobal`
     body {
         height: 100%;
         width: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #5EECBD;
     }
 
     #root {
-        position: relative;
-        height: 100%;
-        width: 100%;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .slide-enter {
         opacity: 0;
-        transform: translate3d(0,-100%,0);
-    }
+        transform: translate3d(20px,0,0);
+      }
 
     .slide-enter.enter-active {
         opacity: 1;
@@ -29,8 +28,11 @@ injectGlobal`
     }
 
     .slide-leave {
-        opacity: 0;
-        transition-duration: 0s;
+        opacity: 1;
+    }
+
+    .slide-leave.leave-active {
+        opacity: 0.01;
     }
 `;
 
@@ -43,7 +45,7 @@ export const Container = styled.div`
     min-height: 300px;
 
     margin: 0 auto;
-    padding-bottom: 32px;
+    padding-bottom: 70px;
 
     &:focus {
         outline: none;
@@ -53,25 +55,39 @@ export const Container = styled.div`
 export const InnerContainer = styled.div`
     display: table-cell;
     vertical-align: middle;
+
+    overflow: hidden;
 `;
 
 export const Title = styled.h1`
     margin: 0.5em 0;
     font-size: 3em;
     text-align: center;
+
+    text-shadow: 2px 2px 8px rgba(0,0,0,.15)
 `;
 
 export const Body = styled.p`
     margin: 0.5em 0;
     font-size: 1.5em;
     text-align: center;
+
+    text-shadow: 2px 2px 8px rgba(0,0,0,.15);
 `;
 
 export const Icon = styled.img`
     display: inline-block;
     vertical-align: middle;
-    margin: 10px 20px;
-    width: 100px;
+    margin: 10px 30px;
+    ${(props) => !props.portrait && !props.landscape && `
+        width: 100px;
+    `};
+    ${(props) => props.portrait && `
+        height: 110px;
+    `};
+    ${(props) => props.landscape && `
+        width: 160px;
+    `};
 `;
 
 export const ButtonThumbnail = styled.a`
@@ -90,7 +106,7 @@ export const ButtonThumbnail = styled.a`
         width: 100%;
     }
 
-    margin: 10px 20px;
+    margin: 10px;
 
     background-color: transparent;
     border: 4px solid white;
@@ -191,5 +207,12 @@ export const Control = styled.button`
 `;
 
 export const Transition = styled.div`
-    transition: all ease 0.35s;
+    transition: all 450ms ease;
+`;
+
+export const Bracket = styled.span`
+    font-size: 64px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 10px;
 `;
