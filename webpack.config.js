@@ -18,7 +18,7 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'index_bundle.js',
-    publicPath: (isDevServer) ? '/' : 'http://robin.local/personal/rk_main/assets/aboutme/'
+    publicPath: (isDevServer) ? '/' : 'https://www.robinwkurtz.com/assets/aboutme/',
   },
   module: {
     loaders: [
