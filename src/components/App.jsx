@@ -307,6 +307,7 @@ export default class App extends React.Component<null, State> {
                     <CSSTransitionGroup
                         transitionName="slide"
                         transitionEnterTimeout={450}
+                        transitionLeaveTimeout={450}
                         transitionLeave={false}
                     >
                         <Transition key={this.state.currentSlide}>
