@@ -1,8 +1,8 @@
 // @flow
 
-import styled, { injectGlobal } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
     html,
     body {
         height: 100%;
@@ -20,7 +20,7 @@ injectGlobal`
     .slide-enter {
         opacity: 0;
         transform: translate3d(20px,0,0);
-      }
+    }
 
     .slide-enter.enter-active {
         opacity: 1;
