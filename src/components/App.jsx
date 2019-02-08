@@ -4,7 +4,7 @@ import React from 'react';
 
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import { Container, InnerContainer, Title, Body, Icon, ButtonThumbnail, Controls, Control, Transition, Bracket } from './styles';
+import { Container, GlobalStyle, InnerContainer, Title, Body, Icon, ButtonThumbnail, Controls, Control, Transition, Bracket } from './styles';
 
 import codeigniterIcon from '../assets/images/codeigniter.svg';
 import cssIcon from '../assets/images/css.svg';
@@ -298,11 +298,13 @@ export default class App extends React.Component<null, State> {
 
     render() {
         const { currentSlide, lastSlide } = this.state;
+
         return (
             <Container
                 onKeyDown={this.handleKeyDown}
                 tabIndex="0"
             >
+                <GlobalStyle />
                 <InnerContainer>
                     <CSSTransitionGroup
                         transitionName="slide"

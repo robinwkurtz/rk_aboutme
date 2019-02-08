@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './src/components/App.jsx';
+import App from './components/App.jsx';
 
 const target = document.getElementById('root');
 if (target) {
